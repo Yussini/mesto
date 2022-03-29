@@ -2,12 +2,13 @@
   box-sizing: border-box;
   margin: auto;
   height: 74px;
-  max-width: 68.75%;
+  max-width: 880px;
   border-bottom: 1px solid #545454
 }
 
-@media screen and (max-width:320px) {
+@media screen and (max-width:767px) {
   .header {
+    max-width: fit-content;
     width: 100%;
     margin-left: 27px;
     height: 56px;
