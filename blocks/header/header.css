@@ -6,11 +6,16 @@
   border-bottom: 1px solid #545454
 }
 
-@media screen and (max-width:767px) {
+@media screen and (max-width:768px) {
   .header {
-    max-width: fit-content;
+    max-width: none;
     width: 100%;
-    margin-left: 27px;
     height: 56px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .header {
+    max-width: 700px;
   }
 }
