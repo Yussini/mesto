@@ -9,6 +9,7 @@
 @media screen and (max-width:768px) {
   .bio__name {
     font-size: 27px;
+    margin-left: 35px;
     margin-right: 10px;
     width: 189px;
   }

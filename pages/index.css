@@ -11,3 +11,9 @@
 @import url(../blocks/bio/__name/bio__name.css);
 @import url(../blocks/bio/__edit/bio__edit_btn.css);
 @import url(../blocks/bio/__description/bio__description.css);
+@import url(../blocks/elements/elements.css);
+@import url(../blocks/elements/__grid/elements__grid.css);
+@import url(../blocks/elements/__item/elements__item.css);
+@import url(../blocks/elements/__photo/elements__photo.css);
+@import url(../blocks/elements/__name/elements__name.css);
+@import url(../blocks/elements/__like/elements__like_btn.css);
