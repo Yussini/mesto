@@ -20,3 +20,7 @@
     margin: 7px 0 0;
   }
 }
+
+.bio__edit-btn:hover {
+  opacity: .6;
+}

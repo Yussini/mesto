@@ -7,4 +7,9 @@
   background-repeat: no-repeat;
   margin: 0 0 18px;
   padding: 0;
+  cursor: pointer;
+}
+
+.elements__like-btn:hover {
+  opacity: .6;
 }

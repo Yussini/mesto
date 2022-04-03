@@ -20,3 +20,7 @@
     margin: auto;
   }
 }
+
+.profile__add-btn:hover {
+  opacity: .6;
+}
