@@ -10,14 +10,14 @@
 
 @media screen and (max-width:1024px) {
   .elements__grid{
-    grid: 361px / 1fr 1fr ;
+    grid: 361px / 1fr 1fr;
     gap: 20px 17px;
   }
 }
 
 @media screen and (max-width:768px) {
   .elements__grid{
-    grid: 361px / 1fr ;
+    grid: 361px / 1fr;
     gap: 20px;
   }
 }
