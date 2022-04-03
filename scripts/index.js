@@ -5,7 +5,7 @@ let formElement = document.querySelector('.popup__form');
 let bioName = document.querySelector('.bio__name');
 let bioDescription = document.querySelector('.bio__description');
 let nameInput = document.querySelector('.popup__input_call');
-let jobInput = document.querySelector('.popup__input_hobbie');
+let jobInput = document.querySelector('.popup__input_hobbies');
 
 function openModalWindow() {
   modalWindow.classList.add('popup_opened');
@@ -26,4 +26,4 @@ function formSubmitHandler(evt) {
 
 editProfile.addEventListener('click', openModalWindow);
 modalCloseBtn.addEventListener('click', closeModalWindow);
-formElement.addEventListener('submit', formSubmitHandler); 
+formElement.addEventListener('submit', formSubmitHandler);
