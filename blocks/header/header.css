@@ -1,7 +1,7 @@
 .header {
   box-sizing: border-box;
   margin: auto;
-  height: 74px;
+  min-height: 74px;
   max-width: 880px;
   border-bottom: 1px solid #545454;
 }
@@ -10,7 +10,7 @@
   .header {
     max-width: none;
     width: 100%;
-    height: 56px;
+    min-height: 56px;
   }
 }
 

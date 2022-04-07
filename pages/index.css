@@ -1,5 +1,6 @@
 @import url(../vendor/normalize.css);
 @import url(../fonts/Inter-web/Inter.css);
+@import url(../blocks/main-container/main-container.css);
 @import url(../blocks/page/page.css);
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
@@ -16,16 +17,16 @@
 @import url(../blocks/elements/__item/elements__item.css);
 @import url(../blocks/elements/__photo/elements__photo.css);
 @import url(../blocks/elements/__name/elements__name.css);
-@import url(../blocks/elements/__like/elements__like-btn.css);
+@import url(../blocks/elements/__like-btn/elements__like-btn.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__author/footer__author.css);
 @import url(../blocks/popup/popup.css);
-@import url(../blocks/popup/_is-active/popup_opened.css);
+@import url(../blocks/popup/_is-active/popup_is-active.css);
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__close-btn/popup__close-btn.css);
 @import url(../blocks/popup/__form/popup__form.css);
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__input/popup__input.css);
-@import url(../blocks/popup/__input/_call/popup__input_call.css);
-@import url(../blocks/popup/__input/_hobbies/popup__input_hobbies.css);
+@import url(../blocks/popup/__input-call/popup__input__call.css);
+@import url(../blocks/popup/__input-hobbies/popup__input-hobbies.css);
 @import url(../blocks/popup/__save-btn/popup__save-btn.css);

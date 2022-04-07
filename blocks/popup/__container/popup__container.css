@@ -5,15 +5,14 @@
   padding: 34px 36px 37px;
   width: 100%;
   max-width: 430px;
-  height: 330px;
-  margin: 195px auto 0;
+  min-height: 330px;
+  margin: auto;
   border-radius: 10px;
 }
 
 @media screen and (max-width:768px) {
   .popup__container{
     max-width: 282px;
-    margin-top: 123px;
     padding: 25px 22px;
     height: 322px;
   }
