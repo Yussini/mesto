@@ -4,8 +4,8 @@ let modalCloseBtn = document.querySelector('.popup__close-btn');
 let formElement = document.querySelector('.popup__form');
 let bioName = document.querySelector('.bio__name');
 let bioDescription = document.querySelector('.bio__description');
-let nameInput = document.querySelector('.popup__input-call');
-let jobInput = document.querySelector('.popup__input-hobbies');
+let nameInput = document.querySelector('.popup__input_type_call');
+let jobInput = document.querySelector('.popup__input_type_hobbies');
 
 function openModalWindow() {
   modalWindow.classList.add('popup_is-active');

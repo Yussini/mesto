@@ -1,7 +1,7 @@
-.popup__input-call {
+.popup__input_type_hobbies {
   box-sizing: border-box;
   color: #000;
-  margin: 0 0 25px;
+  margin: 0 0 48px;
   padding: 0 0 13px;
   max-width: 358px;
   width: 100%;
@@ -10,3 +10,4 @@
   font-weight: normal;
   outline: none;
 }
+
