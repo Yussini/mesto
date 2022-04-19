@@ -24,37 +24,41 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
-let editProfile = document.querySelector('.bio__edit-btn');
-let addCard = document.querySelector('.profile__add-btn');
-let popups = document.querySelectorAll('.popup');
-let popupCloseBtn = document.querySelectorAll('.popup__close-btn');
-let formElement = document.querySelector('.popup__form');
-let formImgCard = document.querySelector('.popup__img-card')
-let bioName = document.querySelector('.bio__name');
-let bioDescription = document.querySelector('.bio__description');
-let nameInput = document.querySelector('.popup__input_type_call');
-let jobInput = document.querySelector('.popup__input_type_hobbies');
-let placeInput = document.querySelector('.popup__input_type_place');
-let linkInput = document.querySelector('.popup__input_type_link');
-let listContainer = document.querySelector('.elements__grid');
-let template = document.querySelector('.template')
-let deleteBtn = document.querySelectorAll('.elements__dlt-btn');
+const profileBtn = document.querySelector('.bio__edit-btn');
+const addCardBtn = document.querySelector('.profile__add-btn');
+
+const popups = document.querySelectorAll('.popup');
+const popupCloseBtn = document.querySelectorAll('.popup__close-btn');
+const formElement = document.querySelector('.popup__form');
+const formImgCard = document.querySelector('.popup__img-card')
+
+const bioName = document.querySelector('.bio__name');
+const bioDescription = document.querySelector('.bio__description');
+const nameInput = document.querySelector('.popup__input_type_call');
+const jobInput = document.querySelector('.popup__input_type_hobbies');
+const placeInput = document.querySelector('.popup__input_type_place');
+const linkInput = document.querySelector('.popup__input_type_link');
+const listContainer = document.querySelector('.elements__grid');
+const template = document.querySelector('.template');
+const deleteBtn = document.querySelectorAll('.elements__dlt-btn');
 
 
 //Открытие попапа
 function togglePopup(index){
   popups[index].classList.toggle("popup_is-active");
-  
+
    if (popups[0]){
     nameInput.value = bioName.textContent;
     jobInput.value = bioDescription.textContent;
   }
 }
 
+
 //Закрытие попапа
 function closePopups(index) {
   popups[index].classList.remove('popup_is-active');
 }
+
 
 
 //Добавление карточки через template
@@ -71,7 +75,15 @@ function getElement(item) {
   const likeBtn = getElementTemplate.querySelector('.elements__like-btn')
 
   templateImage.src = item.link;
+  templateImage.alt = item.name;
   templateName.textContent = item.name;
+
+  templateImage.addEventListener('click', createElementImage);
+  deleteBtn.addEventListener('click', removeElement);
+  likeBtn.addEventListener('click', likeElement);
+
+  return getElementTemplate;
+}
 
   //Лайк карточки
   function likeElement(){
@@ -84,12 +96,19 @@ function getElement(item) {
     dltElement.remove();
   }
 
-  deleteBtn.addEventListener('click', removeElement);
-  likeBtn.addEventListener('click', likeElement);
+function createElementImage(evt) {
+  
+  const element = evt.target.closest(".elements__item");
+  const albumImage = element.querySelector(".elements__photo");
+  const popupAlbumImage = document.querySelector(".popup__image");
+  const popupDescription = document.querySelector(".popup__description");
 
-  return getElementTemplate;
+  popupAlbumImage.src = albumImage.src;
+  popupAlbumImage.alt = albumImage.alt;
+  popupDescription.textContent = albumImage.alt;
+
+  togglePopup(2);
 }
-
 
 //Форма отправки изменений в имени и описании профиля
 function formSubmitHandler(evt) {
@@ -102,7 +121,7 @@ function formSubmitHandler(evt) {
 //Форма добавления фотокарточки
 function hundleAddCard(evt) {
     evt.preventDefault();
-    let createCard = getElement({
+    const createCard = getElement({
       name: placeInput.value,
       link: linkInput.value
     });
@@ -113,11 +132,14 @@ function hundleAddCard(evt) {
   }
 
 //Кнопки
-editProfile.addEventListener('click', ()=> togglePopup(0));
-addCard.addEventListener('click', ()=> togglePopup(1));
+profileBtn.addEventListener('click', ()=> togglePopup(0));
+addCardBtn.addEventListener('click', ()=> togglePopup(1));
 popupCloseBtn[0].addEventListener('click', ()=> closePopups(0));
 popupCloseBtn[1].addEventListener('click', ()=> closePopups(1));
+popupCloseBtn[2].addEventListener('click', ()=> closePopups(2));
 formElement.addEventListener('submit', formSubmitHandler);
 formImgCard.addEventListener('submit', hundleAddCard);
 
 render();
+
+
