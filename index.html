@@ -50,11 +50,11 @@
     <!--Pop-up-->
 
 
-    <div class="popup">
+    <div class="popup popup_profile">
       <div class="popup__container">
-        <button class="popup__close-btn" type="button"></button>
+        <button class="popup__close-btn popup_close-profile" type="button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form" name="edit-profile">
+        <form class="popup__form popup__form_bio" name="edit-profile">
           <input class="popup__input popup__input_type_call" type="text" name="name" placeholder="Ваше имя">
           <input class="popup__input popup__input_type_hobbies" type="text" name="about" placeholder="О себе">
           <button class="popup__save-btn" type="submit">Сохранить</button>
@@ -62,11 +62,11 @@
       </div>
     </div>
 
-    <div class="popup">
+    <div class="popup popup_card">
       <div class="popup__container">
-        <button class="popup__close-btn" type="button"></button>
+        <button class="popup__close-btn popup_close-card" type="button"></button>
         <h2 class="popup__title">Новое место</h2>
-        <form class="popup__img-card" name="edit-place">
+        <form class="popup__form popup__form_card" name="edit-place">
           <input class="popup__input popup__input_type_place" type="text" name="place" placeholder="Название">
           <input class="popup__input popup__input_type_link" type="text" name="link" placeholder="Ссылка на картинку">
           <button class="popup__push-btn" type="submit">Создать</button>
@@ -76,7 +76,7 @@
 
     <div class="popup popup_album">
       <div class="popup__wrapper">
-        <button class="popup__close-btn" type="button"></button>
+        <button class="popup__close-btn popup_close-album" type="button"></button>
         <img class="popup__image" src="#" alt="">
         <p class="popup__description"></p>
       </div>
