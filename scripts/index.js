@@ -33,9 +33,9 @@ const imagePopup = document.querySelector(".popup_album");
 const popups = document.querySelectorAll(".popup");
 
 
-const closeBtnProfile = document.querySelector(".popup__close_profile");
-const closeBtnCard = document.querySelector(".popup__close_card");
-const closeBtnAlbum = document.querySelector(".popup__close_album");
+const closeBtnProfile = document.querySelector(".popup__close-btn_profile");
+const closeBtnCard = document.querySelector(".popup__close-btn_card");
+const closeBtnAlbum = document.querySelector(".popup__close-btn_album");
 
 const formBioElement = document.querySelector(".popup__form_bio");
 const formImgCard = document.querySelector(".popup__form_card");
