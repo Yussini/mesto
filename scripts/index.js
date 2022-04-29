@@ -1,29 +1,3 @@
-const initialCards = [
-  {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
 const profileBtn = document.querySelector(".bio__edit-btn");
 const addCardBtn = document.querySelector(".profile__add-btn");
 
@@ -33,9 +7,9 @@ const imagePopup = document.querySelector(".popup_album");
 const popups = document.querySelectorAll(".popup");
 
 
-const closeBtnProfile = document.querySelector(".popup__close-btn_profile");
-const closeBtnCard = document.querySelector(".popup__close-btn_card");
-const closeBtnAlbum = document.querySelector(".popup__close-btn_album");
+const profileCloseBtn = document.querySelector(".popup__close-btn_profile");
+const cardCloseBtn = document.querySelector(".popup__close-btn_card");
+const albumCloseBtn = document.querySelector(".popup__close-btn_album");
 
 const formBioElement = document.querySelector(".popup__form_bio");
 const formImgCard = document.querySelector(".popup__form_card");
@@ -58,6 +32,24 @@ function openPopup(popup) {
 function close(popup) {
   popup.classList.remove("popup_is-active");
 }
+
+//Закрытие попапа по клику на оверлей
+function onOverlayClick(event) {
+  if(event.target === event.currentTarget) {
+    close(profilePopup);
+    close(cardPopup);
+    close(imagePopup);
+  }
+}
+
+//Закрытие на кнопку ESC
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    close(profilePopup);
+    close(cardPopup);
+    close(imagePopup);
+  }
+  });
 
 //Лайк карточки
 function likeElement() {
@@ -135,17 +127,20 @@ function hundleAddCard(evt) {
   linkInput.value = "";
 }
 
+
 //Кнопки
-profileBtn.addEventListener(
-  "click",
-  () => openPopup(profilePopup),
-  openPropfilePopup()
-);
+
+
+profileBtn.addEventListener("click",() => openPopup(profilePopup),openPropfilePopup());
 addCardBtn.addEventListener("click", () => openPopup(cardPopup));
-closeBtnProfile.addEventListener("click", () => close(profilePopup));
-closeBtnCard.addEventListener("click", () => close(cardPopup));
-closeBtnAlbum.addEventListener("click", () => close(imagePopup));
+profilePopup.addEventListener('click', onOverlayClick);
+cardPopup.addEventListener('click', onOverlayClick);
+imagePopup.addEventListener('click', onOverlayClick);
+profileCloseBtn.addEventListener("click", () => close(profilePopup));
+cardCloseBtn.addEventListener("click", () => close(cardPopup));
+albumCloseBtn.addEventListener("click", () => close(imagePopup));
 formBioElement.addEventListener("submit", formSubmitHandler);
 formImgCard.addEventListener("submit", hundleAddCard);
+
 
 render();
