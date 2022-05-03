@@ -40,7 +40,7 @@ function openPopup(popup) {
 }
 
 //Закрытие попапа
-function closepPopup(popup) {
+function closePopup(popup) {
   popup.classList.remove("popup_is-active");
   document.removeEventListener('keydown', closeByEscape);
 }
@@ -48,9 +48,9 @@ function closepPopup(popup) {
 //Закрытие попапа по клику на оверлей
 function onOverlayClick(event) {
   if(event.target === event.currentTarget) {
-    closepPopup(profilePopup);
-    closepPopup(cardPopup);
-    closepPopup(imagePopup);
+    closePopup(profilePopup);
+    closePopup(cardPopup);
+    closePopup(imagePopup);
   }
 }
 
@@ -58,7 +58,7 @@ function onOverlayClick(event) {
 function closeByEscape(evt) {
   if (evt.key === 'Escape') {
     const openedPopup = document.querySelector('.popup_is-active');
-    closepPopup(openedPopup);
+    closePopup(openedPopup);
   }
 }
 
@@ -121,7 +121,7 @@ function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   bioName.textContent = nameInput.value;
   bioDescription.textContent = jobInput.value;
-  closepPopup(profilePopup);
+  closePopup(profilePopup);
 }
 
 //Форма добавления фотокарточки
@@ -132,7 +132,7 @@ function hundleAddCard(evt) {
     link: linkInput.value,
   });
   listContainer.prepend(createCard);
-  closepPopup(cardPopup);
+  closePopup(cardPopup);
   placeInput.value = "";
   linkInput.value = "";
 }
@@ -165,9 +165,9 @@ profileBtn.addEventListener('click', () => {
 profilePopup.addEventListener('click', onOverlayClick);
 cardPopup.addEventListener('click', onOverlayClick);
 imagePopup.addEventListener('click', onOverlayClick);
-profileCloseBtn.addEventListener("click", () => closepPopup(profilePopup));
-cardCloseBtn.addEventListener("click", () => closepPopup(cardPopup));
-albumCloseBtn.addEventListener("click", () => closepPopup(imagePopup));
+profileCloseBtn.addEventListener("click", () => closePopup(profilePopup));
+cardCloseBtn.addEventListener("click", () => closePopup(cardPopup));
+albumCloseBtn.addEventListener("click", () => closePopup(imagePopup));
 formBioElement.addEventListener("submit", handleProfileFormSubmit);
 formImgCard.addEventListener("submit", hundleAddCard);
 
