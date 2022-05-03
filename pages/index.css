@@ -37,5 +37,9 @@
 @import url(../blocks/popup/__input/_type/popup__input_type_link.css);
 @import url(../blocks/popup/__input/_type/popup__input_type_call.css);
 @import url(../blocks/popup/__input/_type/popup__input_type_hobbies.css);
+@import url(../blocks/popup/__input-error/popup__input-error.css);
 @import url(../blocks/popup/__push-btn/popup__push-btn.css);
 @import url(../blocks/popup/__save-btn/popup__save-btn.css);
+@import url(../blocks/button/_disabled/button_disabled.css);
+@import url(../blocks/popup/__input/_type/popup__input_type_error.css);
+@import url(../blocks/popup/__input-error/_visible/popup__input-error_visible.css);

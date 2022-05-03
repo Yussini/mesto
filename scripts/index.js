@@ -2,7 +2,9 @@ const profileBtn = document.querySelector(".bio__edit-btn");
 const addCardBtn = document.querySelector(".profile__add-btn");
 
 const profilePopup = document.querySelector(".popup_profile");
+const profilePopupSaveBtn = profilePopup.querySelector('.popup__save-btn');
 const cardPopup = document.querySelector(".popup_card");
+const cardPopupPushBtn = cardPopup.querySelector('.popup__push-btn');
 const imagePopup = document.querySelector(".popup_album");
 const popups = document.querySelectorAll(".popup");
 
@@ -17,9 +19,13 @@ const formImgCard = document.querySelector(".popup__form_card");
 const bioName = document.querySelector(".bio__name");
 const bioDescription = document.querySelector(".bio__description");
 const nameInput = document.querySelector(".popup__input_type_call");
+const nameInputError = profilePopup.querySelector(`#${nameInput.id}-error`);
 const jobInput = document.querySelector(".popup__input_type_hobbies");
+const jobInputError = profilePopup.querySelector(`#${jobInput.id}-error`);
 const placeInput = document.querySelector(".popup__input_type_place");
+const placeInputError = cardPopup.querySelector(`#${placeInput.id}-error`);
 const linkInput = document.querySelector(".popup__input_type_link");
+const linkInputError = cardPopup.querySelector(`#${linkInput.id}-error`);
 const listContainer = document.querySelector(".elements__grid");
 const template = document.querySelector(".template");
 
@@ -129,10 +135,29 @@ function hundleAddCard(evt) {
 
 
 //Кнопки
+addCardBtn.addEventListener('click', () => {
+  formImgCard.reset(); 
+  disableButton(cardPopupPushBtn, Settings.inactiveButtonClass);
+  hideError(Settings, placeInput, placeInputError);
+  hideError(Settings, linkInput, linkInputError);
+  openPopup(cardPopup);
+});
+
+profileBtn.addEventListener('click', () => { 
+  nameInput.value = bioName.textContent;
+  jobInput.value = bioDescription.textContent;
+  if (nameInput.value && jobInput.value) {
+    enableButton(profilePopupSaveBtn, Settings.inactiveButtonClass);
+  } else {
+    disableButton(profilePopupSaveBtn, Settings.inactiveButtonClass);
+  }
+  hideError(Settings, nameInput, nameInputError );
+  hideError(Settings, jobInput, jobInputError );
+  openPropfilePopup();
+  openPopup(profilePopup);
+});
 
 
-profileBtn.addEventListener("click",() => openPopup(profilePopup),openPropfilePopup());
-addCardBtn.addEventListener("click", () => openPopup(cardPopup));
 profilePopup.addEventListener('click', onOverlayClick);
 cardPopup.addEventListener('click', onOverlayClick);
 imagePopup.addEventListener('click', onOverlayClick);

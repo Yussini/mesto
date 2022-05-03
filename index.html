@@ -43,7 +43,7 @@
 
 
     <footer class="footer">
-      <p class="footer__author">&copy; 2021 Mesto Russia</p>
+      <p class="footer__author">&copy; 2022 Mesto Russia</p>
     </footer>
 
 
@@ -54,10 +54,12 @@
       <div class="popup__container">
         <button class="popup__close-btn popup__close-btn_profile" type="button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form popup__form_bio" name="edit-profile">
-          <input class="popup__input popup__input_type_call" type="text" name="name" placeholder="Ваше имя">
-          <input class="popup__input popup__input_type_hobbies" type="text" name="about" placeholder="О себе">
-          <button class="popup__save-btn" type="submit">Сохранить</button>
+        <form class="popup__form popup__form_bio" name="edit-profile" novalidate>
+          <input class="popup__input popup__input_type_call" id="call-input" type="text" name="name" placeholder="Ваше имя" minlength="2" maxlength="40" required>
+          <span class="popup__input-error" id="call-input-error"></span>
+          <input class="popup__input popup__input_type_hobbies" id="hobbies-input" type="text" name="about" placeholder="О себе" minlength="2" maxlength="200" required>
+          <span class="popup__input-error" id="hobbies-input-error"></span>
+          <button class="popup__button popup__save-btn" type="submit">Сохранить</button>
         </form>
       </div>
     </div>
@@ -66,10 +68,12 @@
       <div class="popup__container">
         <button class="popup__close-btn popup__close-btn_card" type="button"></button>
         <h2 class="popup__title">Новое место</h2>
-        <form class="popup__form popup__form_card" name="edit-place">
-          <input class="popup__input popup__input_type_place" type="text" name="place" placeholder="Название">
-          <input class="popup__input popup__input_type_link" type="text" name="link" placeholder="Ссылка на картинку">
-          <button class="popup__push-btn" type="submit">Создать</button>
+        <form class="popup__form popup__form_card" name="edit-place" novalidate>
+          <input class="popup__input popup__input_type_place" id="place-input" type="text" name="place" placeholder="Название" minlength="2" maxlength="30" required>
+          <span class="popup__input-error" id="place-input-error"></span>
+          <input class="popup__input popup__input_type_link" id="link-input" type="url" name="link" placeholder="Ссылка на картинку" required>
+          <span class="popup__input-error" id="link-input-error"></span>
+          <button class="popup__button popup__push-btn" type="submit">Создать</button>
         </form>
       </div>
     </div>
@@ -96,5 +100,6 @@
 
   <script src="./scripts/cards.js"></script>
   <script src="./scripts/index.js"></script>
+  <script src="./scripts/validate.js"></script>
 </body>
 </html>
