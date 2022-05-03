@@ -8,6 +8,10 @@ const cardPopupPushBtn = cardPopup.querySelector('.popup__push-btn');
 const imagePopup = document.querySelector(".popup_album");
 const popups = document.querySelectorAll(".popup");
 
+ 
+const popupAlbumImage = document.querySelector(".popup__image");
+const popupDescription = document.querySelector(".popup__description");
+
 
 const profileCloseBtn = document.querySelector(".popup__close-btn_profile");
 const cardCloseBtn = document.querySelector(".popup__close-btn_card");
@@ -32,30 +36,32 @@ const template = document.querySelector(".template");
 //Открытие попапа
 function openPopup(popup) {
   popup.classList.add("popup_is-active");
+  document.addEventListener('keydown', closeByEscape);
 }
 
 //Закрытие попапа
-function close(popup) {
+function closepPopup(popup) {
   popup.classList.remove("popup_is-active");
+  document.removeEventListener('keydown', closeByEscape);
 }
 
 //Закрытие попапа по клику на оверлей
 function onOverlayClick(event) {
   if(event.target === event.currentTarget) {
-    close(profilePopup);
-    close(cardPopup);
-    close(imagePopup);
+    closepPopup(profilePopup);
+    closepPopup(cardPopup);
+    closepPopup(imagePopup);
   }
 }
 
 //Закрытие на кнопку ESC
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') {
-    close(profilePopup);
-    close(cardPopup);
-    close(imagePopup);
+function closeByEscape(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_is-active');
+    closepPopup(openedPopup);
   }
-  });
+}
+
 
 //Лайк карточки
 function likeElement() {
@@ -102,8 +108,6 @@ function getElement(item) {
 function createElementImage(evt) {
   const element = evt.target.closest(".elements__item");
   const albumImage = element.querySelector(".elements__photo");
-  const popupAlbumImage = document.querySelector(".popup__image");
-  const popupDescription = document.querySelector(".popup__description");
 
   popupAlbumImage.src = albumImage.src;
   popupAlbumImage.alt = albumImage.alt;
@@ -113,11 +117,11 @@ function createElementImage(evt) {
 }
 
 //Форма отправки изменений в имени и описании профиля
-function formSubmitHandler(evt) {
+function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   bioName.textContent = nameInput.value;
   bioDescription.textContent = jobInput.value;
-  close(profilePopup);
+  closepPopup(profilePopup);
 }
 
 //Форма добавления фотокарточки
@@ -128,7 +132,7 @@ function hundleAddCard(evt) {
     link: linkInput.value,
   });
   listContainer.prepend(createCard);
-  close(cardPopup);
+  closepPopup(cardPopup);
   placeInput.value = "";
   linkInput.value = "";
 }
@@ -161,10 +165,10 @@ profileBtn.addEventListener('click', () => {
 profilePopup.addEventListener('click', onOverlayClick);
 cardPopup.addEventListener('click', onOverlayClick);
 imagePopup.addEventListener('click', onOverlayClick);
-profileCloseBtn.addEventListener("click", () => close(profilePopup));
-cardCloseBtn.addEventListener("click", () => close(cardPopup));
-albumCloseBtn.addEventListener("click", () => close(imagePopup));
-formBioElement.addEventListener("submit", formSubmitHandler);
+profileCloseBtn.addEventListener("click", () => closepPopup(profilePopup));
+cardCloseBtn.addEventListener("click", () => closepPopup(cardPopup));
+albumCloseBtn.addEventListener("click", () => closepPopup(imagePopup));
+formBioElement.addEventListener("submit", handleProfileFormSubmit);
 formImgCard.addEventListener("submit", hundleAddCard);
 
 
