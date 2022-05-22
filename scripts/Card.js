@@ -14,12 +14,12 @@ class Card {
     this._trash = this._card.querySelector('.elements__dlt-btn');
   }
 
-  _likeElement(event) {
-    event.target.classList.toggle('button_active');
+  _likeElement = () => {
+    this._heart.classList.toggle('button_active');
   }
 
-  _removeElement(event) {
-    event.target.closest('.elements__item').remove();
+  _removeElement = () => {
+    this._card.closest('.elements__item').remove();
   }
 
   getCard() {
