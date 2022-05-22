@@ -129,7 +129,7 @@ function renderCard (link, name) {
 }
 
 function addCard (card) {
-  listContainer.prepend(card);
+  listContainer.append(card);
 }
 
 const initialCards = [
