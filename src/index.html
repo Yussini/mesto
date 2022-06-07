@@ -50,7 +50,7 @@
     <!--Pop-up-->
 
 
-    <div class="popup popup_profile">
+    <div id='popupProfile' class="popup popup_profile">
       <div class="popup__container">
         <button class="popup__close-btn popup__close-btn_profile" type="button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
@@ -59,12 +59,12 @@
           <span class="popup__input-error" id="call-input-error"></span>
           <input class="popup__input popup__input_type_hobbies" id="hobbies-input" type="text" name="about" placeholder="О себе" minlength="2" maxlength="200" required>
           <span class="popup__input-error" id="hobbies-input-error"></span>
-          <button class="popup__button popup__save-btn" type="submit">Сохранить</button>
+          <button class="popup__button popup__save-btn"  type="submit">Сохранить</button>
         </form>
       </div>
     </div>
 
-    <div class="popup popup_card">
+    <div id='popupCard' class="popup popup_card">
       <div class="popup__container">
         <button class="popup__close-btn popup__close-btn_card" type="button"></button>
         <h2 class="popup__title">Новое место</h2>
@@ -98,6 +98,7 @@
     </li>
   </template>
 
-  <script type="module" src="./scripts/index.js"></script>
+  <script type="module" src="./utils/utils.js"></script>
+  <script type="module" src="./pages/index.js"></script>
 </body>
 </html>
