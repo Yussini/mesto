@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
     <title>Mesto</title>
 </head>
 <body class="main-container">
@@ -13,7 +12,7 @@
     <!-- Header -->
 
     <header class="header">
-      <img class="header__logo" src="./images/Mesto-logo.svg" alt="Логотип">
+      <img class="header__logo" src="<%=require('./images/Mesto-logo.svg')%>" alt="Логотип">
     </header>
 
 
@@ -22,7 +21,7 @@
 
     <main class="content">
       <section class="profile">
-          <img src="./images/Avatar.jpg" alt="Фото профиля" class="profile__avatar">
+          <img src="<%=require('./images/Avatar.jpg')%>" alt="Фото профиля" class="profile__avatar">
           <div class="bio">
             <h1 class="bio__name">Жак-Ив Кусто</h1>
             <button type="button" class="bio__edit-btn"></button>
@@ -98,7 +97,6 @@
     </li>
   </template>
 
-  <script type="module" src="./utils/utils.js"></script>
-  <script type="module" src="./pages/index.js"></script>
+  
 </body>
 </html>
