@@ -64,7 +64,7 @@ export const selectorTemaplate = '#card__template';
 
 export const profilePopupSaveBtn = profilePopup.querySelector('.popup__save-btn');
 
-export const Settings = {
+export const settings = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__button',

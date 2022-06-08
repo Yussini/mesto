@@ -21,15 +21,15 @@ import { initialCards,
     jobInput, 
     addCardBtn, 
     selectorTemaplate,
-    Settings } 
+    settings } 
    from '../utils/utils.js'
 
 
 
-const addCardFormValidator = new FormValidator(Settings, formImgCard);
+const addCardFormValidator = new FormValidator(settings, formImgCard);
 addCardFormValidator.enableValidation();
 
-const editProfileFormValidator = new FormValidator(Settings, formBioElement);
+const editProfileFormValidator = new FormValidator(settings, formBioElement);
 editProfileFormValidator.enableValidation();
 
 
@@ -51,7 +51,6 @@ function handleCardClick(link, name) {
 
 function createNewCard(data) {
     const newCard = new Card(data, handleCardClick, selectorTemaplate)
-    console.log(data);
     return newCard.generateCard()
 };
 
