@@ -1,4 +1,5 @@
 import './index.css';
+import Api from '../components/Api.js';
 
 import {Card} from '../components/Card.js';
 import {FormValidator} from '../components/FormValidator.js';
@@ -23,6 +24,14 @@ import { initialCards,
     selectorTemaplate,
     settings } 
    from '../utils/utils.js'
+
+   const api = new Api({
+    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-43',
+    headers: {
+      authorization: '7eb3efca-bef5-48de-935e-a185424b57c9',
+      'Content-Type': 'application/json'
+    }
+  });
 
 
 
