@@ -21,7 +21,10 @@
 
     <main class="content">
       <section class="profile">
-          <img src="<%=require('./images/Avatar.jpg')%>" alt="Фото профиля" class="profile__avatar">
+          <div class="profile__box">
+            <img src="<%=require('./images/Avatar.jpg')%>" alt="Фото профиля" class="profile__avatar">
+            <button class="profile__edit-btn"></button>
+          </div>
           <div class="bio">
             <h1 class="bio__name">Жак-Ив Кусто</h1>
             <button type="button" class="bio__edit-btn"></button>
@@ -85,11 +88,25 @@
       </div>
     </div>
 
-    <div id='popupConfirm' class="popup popup_confirm">
+    <div id='popupConfirm' class="popup popup_confirm ">
       <div class="popup__box">
         <button class="popup__close-btn popup__close-btn_confirm" type="button"></button>
-        <h1 class="popup__title">Вы уверены?</h1>
-        <button class="popup__button popup__confirm-btn">Да</button>
+        <form class="popup__form popup__form_delete">
+          <h1 class="popup__title">Вы уверены?</h1>
+          <button type="submit" class="popup__button popup__confirm-btn">Да</button>
+        </form>
+      </div>
+    </div>
+
+    <div id='popupAvatar' class="popup popup_type_avatar">
+      <div class="popup__case">
+          <button class="popup__close-btn popup__close-btn_avatar" type="button"></button>
+          <form class="popup__form">
+              <h2 class="popup__title">Обновить аватар</h2>
+              <input id="input-avatar" class="popup__input popup__input_avatar" type="url" placeholder="Ссылка на аватар" name="avatar" required>
+              <span class="popup__span input-avatar-error"> </span>
+              <button type="submit" class="popup__button popup__reserve-btn">Сохранить</button>
+          </form>
       </div>
     </div>
 
