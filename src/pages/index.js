@@ -33,7 +33,7 @@ import {
    from '../utils/utils.js'
 
 
-let userId
+let userId;
 
 const popupImgZoom = new PopupWithImage(popupZoom)
 popupImgZoom.setEventListeners();
@@ -72,8 +72,6 @@ function editAvatar(data) {
       })
 };
 
-
-
    const userInfo = new UserInfo(profileNameSelector, profileInfoSelector, profileAvatarSelector)
 
    const api = new Api({
@@ -83,7 +81,6 @@ function editAvatar(data) {
       'Content-Type': 'application/json'
     }
   });
-
 
 const initialItems = new Section({
   renderer: (items) => {
@@ -138,7 +135,6 @@ function handleCardClick(link, name) {
     popupImgZoom.openPopupAlbum(link, name)
 };
 
-
 function editUserInfo(data) {
   popupFormEdit.loadingConduction(true, 'Сохранить')
   api.editUserInfo(data)
@@ -163,18 +159,15 @@ function saveCard(data) {
       })
 };
 
-
-
 function setInputValue() {
   nameInput.value = userInfo.getUserInfo().name;
   jobInput.value = userInfo.getUserInfo().about;
 }
 
-
-
 profileBtn.addEventListener('click', () => {
   setInputValue();
   popupFormEdit.open();
+  editProfileFormValidator.clearErrors();
 })
 
 
