@@ -7,4 +7,11 @@
   color: #fff;
   width: 358px;
   height: 50px;
+  cursor: pointer;
+}
+
+@media screen and (max-width:768px) {
+  .popup__confirm-btn{
+    max-width: 210px;
+  }
 }

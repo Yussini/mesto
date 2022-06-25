@@ -8,7 +8,7 @@ export default class Api {
       if (res.ok) {
           return res.json();
       }
-      return Promise.reject(`Что-то пошло не так: ${res.status}`);
+      return Promise.reject(`Ошибка: ${res.status}`);
   };
 
   getInitialCards() {

@@ -47,12 +47,11 @@ popupFormAdd.setEventListeners();
 const popupDelete = new PopupDelete(popupConfirmSelector);
 popupDelete.setEventListeners();
 
-const avatarFormValidation = new FormValidator(settings, formAvatar)
-avatarFormValidation.enableValidation();
-
 const popupAvatarForm = new PopupWithForm(popupAvatarSelector, editAvatar);
 popupAvatarForm.setEventListeners();
 
+const avatarFormValidation = new FormValidator(settings, avatarPopup)
+avatarFormValidation.enableValidation();
 
 const addCardFormValidator = new FormValidator(settings, formImgCard);
 addCardFormValidator.enableValidation();
@@ -60,10 +59,6 @@ addCardFormValidator.enableValidation();
 const editProfileFormValidator = new FormValidator(settings, formBioElement);
 editProfileFormValidator.enableValidation();
 
-
-
-
-console.log(popupAvatarForm);
 
 function editAvatar(data) {
   popupAvatarForm.loadingConduction(true, 'Сохранить')
